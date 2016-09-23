@@ -182,8 +182,10 @@ namespace CognitiveServicesExample
                 takePhoto.IsEnabled = false;
                 captureImage.Source = null;
 
-                photoFile = await KnownFolders.PicturesLibrary.CreateFileAsync(
-                    PHOTO_FILE_NAME, CreationCollisionOption.ReplaceExisting);
+                //photoFile = await KnownFolders.PicturesLibrary.CreateFileAsync(PHOTO_FILE_NAME, CreationCollisionOption.ReplaceExisting);
+                var folder = ApplicationData.Current.LocalFolder;
+                photoFile = await folder.CreateFileAsync(PHOTO_FILE_NAME, CreationCollisionOption.ReplaceExisting);
+
                 ImageEncodingProperties imageProperties = ImageEncodingProperties.CreateJpeg();
                 await mediaCapture.CapturePhotoToStorageFileAsync(imageProperties, photoFile);
                 takePhoto.IsEnabled = true;
@@ -275,7 +277,7 @@ namespace CognitiveServicesExample
         }
         private async void button_Clicked(object sender, RoutedEventArgs e)
         {
-            string urlString = "C:\\Users\\Chris\\Pictures\\photo.jpg";
+            string urlString = "C:\\Data\\Users\\photo.jpg";
             Uri uri;
             try
             {
@@ -292,12 +294,15 @@ namespace CognitiveServicesExample
                 return;
             }
 
-            FileOpenPicker picker = new FileOpenPicker();
-            picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            picker.ViewMode = PickerViewMode.List;
-            picker.FileTypeFilter.Add(".jpg");
+            //FileOpenPicker picker = new FileOpenPicker();
+            //picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            //picker.ViewMode = PickerViewMode.List;
+            //picker.FileTypeFilter.Add(".jpg");
 
-            StorageFile result = await picker.PickSingleFileAsync();
+            //StorageFile result = await picker.PickSingleFileAsync();
+            var folder = ApplicationData.Current.LocalFolder;
+            var files = await  folder.GetFilesAsync();
+            var result = files.FirstOrDefault(x => x.Name == "photo.jpg");
 
             //Load image from URL
             bitMapImage = new BitmapImage();
