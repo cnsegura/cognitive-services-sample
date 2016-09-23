@@ -39,8 +39,9 @@ namespace CognitiveServicesExample
     public sealed partial class MainPage : Page
     {
 
-        private string _subscriptionKey = "7f503ea7b7314a08aa908645a9488996";
-
+        //private string _subscriptionKey = "7f503ea7b7314a08aa908645a9488996";
+        private string _subscriptionKey;
+       
         private MediaCapture mediaCapture;
         private StorageFile photoFile;
         private readonly string PHOTO_FILE_NAME = "photo.jpg";
@@ -247,6 +248,7 @@ namespace CognitiveServicesExample
             //
             // Create Project Oxford Emotion API Service client
             //
+            _subscriptionKey = cognitivekey.Text;
             EmotionServiceClient emotionServiceClient = new EmotionServiceClient(_subscriptionKey);
 
             Debug.WriteLine("Calling EmotionServiceClient.RecognizeAsync()...");

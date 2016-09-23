@@ -7,7 +7,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderThickness="5" Margin="50" >
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderThickness="5" Margin="20" >
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -29,7 +29,7 @@
                 </Canvas>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="600" Margin="10">
-                <Button x:Name="video_init" Content="Initialize Audio/Video" Click="initVideo_Click" Margin="10" HorizontalAlignment="Left"/>
+                <Button x:Name="video_init" Content="Initialize Camera" Click="initVideo_Click" Margin="10" HorizontalAlignment="Left"/>
                 <Button x:Name="takePhoto" Content="Take Photo" Click="takePhoto_Click" Margin="10" IsEnabled="False" HorizontalAlignment="Center" Visibility="Collapsed"/>
                 <Button x:Name="reset" Content="Reset" Click="reset_Click" Margin="10"  HorizontalAlignment="Right"/>
             </StackPanel>
@@ -39,7 +39,11 @@
 				ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" />
                 <Button Content="Detect Emotions" Width="140" Margin="10,0,0,0" HorizontalAlignment="Left" Click="button_Clicked"/>
             </StackPanel>
-
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="600" Margin="10">
+            <TextBox
+				x:Name="cognitivekey" TextWrapping="Wrap" IsReadOnly="False" Height="30" Width="350" HorizontalAlignment="Left" VerticalAlignment="Top" 
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" Text="7f503ea7b7314a08aa908645a9488996" />
+            </StackPanel>
         </StackPanel>
 
         <Grid Grid.Column="1" VerticalAlignment="Center">
