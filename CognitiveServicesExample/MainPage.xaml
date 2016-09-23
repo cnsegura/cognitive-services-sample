@@ -28,7 +28,7 @@
                     <Image x:Name="captureImage" Width="300" Height="300" Visibility="Visible"/>
                 </Canvas>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="600" Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="600" Margin="5">
                 <Button x:Name="video_init" Content="Initialize Camera" Click="initVideo_Click" Margin="10" HorizontalAlignment="Left"/>
                 <Button x:Name="takePhoto" Content="Take Photo" Click="takePhoto_Click" Margin="10" IsEnabled="False" HorizontalAlignment="Center" Visibility="Collapsed"/>
                 <Button x:Name="reset" Content="Reset" Click="reset_Click" Margin="10"  HorizontalAlignment="Right"/>
