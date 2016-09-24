@@ -336,7 +336,12 @@ namespace CognitiveServicesExample
         private void reset_Click(object sender, RoutedEventArgs e)
         {
             Cleanup();
-            PhotoCanvas.Children.RemoveAt(1);
+            int count = PhotoCanvas.Children.Count();
+
+            while (count > 0 ) { 
+                PhotoCanvas.Children.RemoveAt(count-1);
+                count--;
+            }
             ResultBox.Items.Clear();
         }
         private void displayAllResults(Emotion[] resultList)
