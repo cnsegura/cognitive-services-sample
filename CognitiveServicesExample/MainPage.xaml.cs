@@ -332,12 +332,9 @@ namespace CognitiveServicesExample
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
-            //SetInitButtonVisibility(Action.ENABLE);
-            //SetVideoButtonVisibility(Action.DISABLE);
-
-            //isRecording = false;
-            //isPreviewing = false;
             Cleanup();
+            PhotoCanvas.Children.RemoveAt(1);
+            ResultBox.Items.Clear();
         }
         private void displayAllResults(Emotion[] resultList)
         {
