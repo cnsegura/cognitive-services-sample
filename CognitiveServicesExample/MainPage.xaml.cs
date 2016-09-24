@@ -332,7 +332,7 @@ namespace CognitiveServicesExample
             Cleanup();
             int count = PhotoCanvas.Children.Count();
 
-            while (count > 0 ) { 
+            while (count > 1 ) { 
                 PhotoCanvas.Children.RemoveAt(count-1);
                 count--;
             }
