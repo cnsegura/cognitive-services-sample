@@ -308,8 +308,11 @@ namespace CognitiveServicesExample
 
             //Load image from URL
             bitMapImage = new BitmapImage();
-            
-            bitMapImage.UriSource = uri;
+
+            //bitMapImage.UriSource = uri;
+            StorageFile bitmapfile = await folder.GetFileAsync("photo.jpg");
+            IRandomAccessStream filestream = await bitmapfile.OpenReadAsync();
+            bitMapImage.SetSource(filestream);
 
             //Load image to UI
             //ImageCanvas.Background = imageBrush;
