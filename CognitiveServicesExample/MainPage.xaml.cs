@@ -415,7 +415,8 @@ namespace CognitiveServicesExample
 
             if (emotionResult != null && emotionResult.Length > 0)
             {
-                photoFile = await KnownFolders.PicturesLibrary.GetFileAsync("photo.jpg");
+                var folder = ApplicationData.Current.LocalFolder;
+                photoFile = await folder.GetFileAsync("photo.jpg");
                 IRandomAccessStream stream = await photoFile.OpenReadAsync();
 
                 BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
