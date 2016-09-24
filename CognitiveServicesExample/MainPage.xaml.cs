@@ -296,12 +296,6 @@ namespace CognitiveServicesExample
                 return;
             }
 
-            //FileOpenPicker picker = new FileOpenPicker();
-            //picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            //picker.ViewMode = PickerViewMode.List;
-            //picker.FileTypeFilter.Add(".jpg");
-
-            //StorageFile result = await picker.PickSingleFileAsync();
             var folder = ApplicationData.Current.LocalFolder;
             var files = await  folder.GetFilesAsync();
             var result = files.FirstOrDefault(x => x.Name == "photo.jpg");
@@ -309,10 +303,10 @@ namespace CognitiveServicesExample
             //Load image from URL
             bitMapImage = new BitmapImage();
 
-            //bitMapImage.UriSource = uri;
-            StorageFile bitmapfile = await folder.GetFileAsync("photo.jpg");
-            IRandomAccessStream filestream = await bitmapfile.OpenReadAsync();
-            bitMapImage.SetSource(filestream);
+            bitMapImage.UriSource = uri;
+            //StorageFile bitmapfile = await folder.GetFileAsync("photo.jpg");
+            //IRandomAccessStream filestream = await bitmapfile.OpenReadAsync();
+            //bitMapImage.SetSource(filestream);
 
             //Load image to UI
             //ImageCanvas.Background = imageBrush;
